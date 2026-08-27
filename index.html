@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mateus Fonseca | Desenvolvedor Full Stack</title>
+    <meta
+      name="description"
+      content="Portfólio de Mateus Fonseca, estudante de Engenharia da Computação (CEFET) e desenvolvedor Full Stack"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <main class="site-shell">
+      <header class="navbar">
+        <a class="availability" href="#contato">
+          <span></span>
+          Aberto a oportunidades
+        </a>
+
+        <nav class="nav-links" aria-label="Navegação principal">
+          <a href="#projetos">Projetos</a>
+          <a href="#tecnologias">Tecnologias</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <button
+          class="mobile-toggle"
+          type="button"
+          aria-label="Abrir menu"
+        >☰</button>
+      </header>
+
+      <section class="hero section-reveal" id="inicio">
+        <div class="hero-name" aria-label="Mateus Fonseca">
+          <span class="outline">Mateus</span>
+          <span>Fonseca</span>
+        </div>
+
+        <div class="hero-copy">
+          <p class="role">Desenvolvedor Full Stack</p>
+
+          <p>
+            Estudante de Engenharia da Computação no CEFET-RJ,
+            construindo experiência através de estudo,pesquisas
+            e projetos práticos .
+          </p>
+
+          <a class="pill-button dark" href="#projetos">
+            Ver projetos <span>↓</span>
+          </a>
+        </div>
+
+        <div class="profile-photo">
+          <img src="./assets/fotoperfil.png" />
+        </div>
+
+        <div class="social-stack" aria-label="Links profissionais">
+          <a
+            class="pill-button dark"
+            href="https://github.com/Mateus-Fonseca847"
+            target="_blank"
+            rel="noopener noreferrer"
+          >GitHub <span>↗</span></a>
+
+          <a
+            href="https://www.linkedin.com/in/mateus-souza-fonseca/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn</a>
+
+          <a href="mailto:mateusfonseca847@gmail.com">E-mail</a>
+        </div>
+      </section>
+
+      <section class="projects section-reveal" id="projetos">
+        <div class="section-top">
+          <div>
+            <p class="kicker">PROJETOS</p>
+            <h2>Projetos profissionais.</h2>
+          </div>
+        </div>
+
+        <span class="ghost-word">PROJETOS</span>
+
+        <div class="project-grid">
+          <a
+            class="project-card"
+            href="#"
+            data-projeto="lph"
+            aria-controls="modalProjeto"
+          >
+            <figure>
+              <img
+                src="./assets/LPH.png"
+                alt="Página da plataforma LPH Hotéis"
+              />
+            </figure>
+
+            <div class="project-meta">
+              <span>Projeto Full Stack</span>
+              <strong>LPH Hotéis</strong>
+              <small>Next.js · TypeScript · PostgreSQL · Prisma</small>
+            </div>
+          </a>
+
+          <a
+            class="project-card"
+            href="#"
+            data-projeto="promedica"
+            aria-controls="modalProjeto"
+          >
+            <figure>
+              <img
+                src="./assets/promedica.png"
+                alt="Full Stack Learning Lab"
+              />
+            </figure>
+
+            <div class="project-meta">
+              <span>Otimizador de processos</span>
+              <strong>Sistema de organização empresarial - Promédica</strong>
+              <small>JavaScript · HTML · CSS · Git · GitHub</small>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="services section-reveal" id="tecnologias">
+        <p class="kicker">TECNOLOGIAS</p>
+        <span class="ghost-word">STACK</span>
+
+        <div class="service-list">
+          <article class="service-item active">
+            <div>
+              <h3>Front-end</h3>
+              <p>
+                Tecnologias que utilizo para desenvolver
+                interfaces e aplicações web.
+              </p>
+            </div>
+
+            <div class="technology-list">
+              <span>HTML, </span>
+              <span>CSS, </span>
+              <span>JavaScript, </span>
+              <span>TypeScript, </span>
+              <span>React, </span>
+              <span>Next.js.</span>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <div>
+              <h3>Back-end</h3>
+              <p>
+                Tecnologias utilizadas na construção
+                de APIs, regras de negócio e aplicações server-side.
+              </p>
+            </div>
+
+            <div class="technology-list">
+              <span>Node.js, </span>
+              <span>APIs REST, </span>
+              <span>Prisma.</span>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <div>
+              <h3>Dados</h3>
+              <p>
+                Ferramentas utilizadas para armazenamento,
+                modelagem e persistência de dados.
+              </p>
+            </div>
+
+            <div class="technology-list">
+              <span>PostgreSQL, </span>
+              <span>Neon, </span>
+              <span>SQL.</span>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <div>
+              <h3>Ferramentas</h3>
+              <p>
+                Ferramentas presentes no meu fluxo de
+                desenvolvimento e versionamento.
+              </p>
+            </div>
+
+            <div class="technology-list">
+              <span>Git, </span>
+              <span>GitHub, </span>
+              <span>Vercel.</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact section-reveal" id="contato">
+        <a class="availability" href="mailto:contato@mateusalves.design">
+          <span></span>
+          Disponível para novos projetos
+        </a>
+
+        <h2>Tem um projeto em mente?</h2>
+
+        <p>
+          Podemos transformar uma ideia em uma experiência digital clara, funcional e impactante.
+          Vamos criar algo relevante juntos.
+        </p>
+
+        <a class="pill-button dark" href="mailto:contato@mateusalves.design">
+          Entre em contato <span>↗</span>
+        </a>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-brand">
+          <img src="./assets/fotoperfil.png" alt="" />
+          <strong>Mateus de Souza Fonseca</strong>
+        </div>
+
+        <nav aria-label="Redes sociais do rodapé">
+          <a href="https://github.com/Mateus-Fonseca847">Github</a>
+          <a href="https://www.linkedin.com/in/mateus-souza-fonseca/">LinkedIn</a>
+          <a href="mailto:mateusfonseca847@gmail.com">E-mail</a>
+        </nav>
+      </footer>
+
+      <div
+        class="modal-projeto"
+        id="modalProjeto"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalProjetoTitulo"
+        aria-hidden="true"
+      >
+        <div class="modal-projeto__overlay" data-fechar-modal></div>
+
+        <section class="modal-projeto__conteudo" tabindex="-1">
+          <div class="modal-projeto__imagens" id="modalProjetoImagens"></div>
+
+          <div class="modal-projeto__informacoes">
+            <h2 id="modalProjetoTitulo"></h2>
+            <p class="modal-projeto__resumo" id="modalProjetoResumo"></p>
+
+            <div class="modal-projeto__detalhes" id="modalProjetoDetalhes"></div>
+
+            <a
+              class="modal-projeto__link"
+              id="modalProjetoLink"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visitar projeto ↗
+            </a>
+
+            <button class="modal-projeto__fechar" type="button" data-fechar-modal>
+              Fechar
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <div
+        class="visualizador-imagem"
+        id="visualizadorImagem"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Imagem ampliada do projeto"
+        aria-hidden="true"
+      >
+        <button
+          class="visualizador-imagem__fechar"
+          type="button"
+          aria-label="Fechar imagem ampliada"
+          data-fechar-imagem-ampliada
+        >×</button>
+
+        <div class="visualizador-imagem__overlay" data-fechar-imagem-ampliada></div>
+
+        <img class="visualizador-imagem__imagem" id="imagemAmpliada" alt="" />
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
