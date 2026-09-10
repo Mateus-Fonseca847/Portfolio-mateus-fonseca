@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 1000" role="img" aria-label="Capa do projeto Football Match Predictor">
+  <rect width="1180" height="1000" fill="#fafaf8"/>
+  <circle cx="1030" cy="170" r="210" fill="#42d977" opacity="0.10"/>
+  <circle cx="130" cy="920" r="170" fill="#1d1d1d" opacity="0.035"/>
+
+  <g font-family="Inter, Helvetica, Arial, sans-serif">
+    <text x="120" y="170" font-size="26" font-weight="600" fill="#8e8e8e" letter-spacing="2">PROBABILIDADES</text>
+
+    <g transform="translate(120 230)">
+      <text x="0" y="40" font-size="32" font-weight="600" fill="#1d1d1d">Mandante</text>
+      <text x="860" y="40" font-size="32" font-weight="700" fill="#1d1d1d" text-anchor="end">54%</text>
+      <rect y="66" width="860" height="26" rx="13" fill="#e4e4e4"/>
+      <rect y="66" width="464" height="26" rx="13" fill="#1d1d1d"/>
+    </g>
+
+    <g transform="translate(120 400)">
+      <text x="0" y="40" font-size="32" font-weight="600" fill="#1d1d1d">Empate</text>
+      <text x="860" y="40" font-size="32" font-weight="700" fill="#1d1d1d" text-anchor="end">26%</text>
+      <rect y="66" width="860" height="26" rx="13" fill="#e4e4e4"/>
+      <rect y="66" width="224" height="26" rx="13" fill="#8e8e8e"/>
+    </g>
+
+    <g transform="translate(120 570)">
+      <text x="0" y="40" font-size="32" font-weight="600" fill="#1d1d1d">Visitante</text>
+      <text x="860" y="40" font-size="32" font-weight="700" fill="#1d1d1d" text-anchor="end">20%</text>
+      <rect y="66" width="860" height="26" rx="13" fill="#e4e4e4"/>
+      <rect y="66" width="172" height="26" rx="13" fill="#42d977"/>
+    </g>
+
+    <g transform="translate(120 760)">
+      <rect width="860" height="130" rx="26" fill="#ffffff" stroke="#e4e4e4"/>
+      <text x="40" y="56" font-size="24" fill="#8e8e8e">FEATURES</text>
+      <text x="40" y="102" font-size="28" font-weight="600" fill="#1d1d1d">gols · chutes · posse · forma recente · cartões</text>
+    </g>
+  </g>
+</svg>

@@ -522,10 +522,8 @@ img {
   transform: translateY(0);
 }
 
-.carrossel-projeto__botao {
-  position: absolute;
-  top: 50%;
-  z-index: 2;
+.carrossel-projeto__botao,
+.carrossel-pessoais__botao {
   display: grid;
   place-items: center;
   width: 38px;
@@ -537,10 +535,17 @@ img {
   font-size: 24px;
   line-height: 1;
   cursor: pointer;
-  transform: translateY(-50%);
   transition:
     transform 0.28s var(--transicao),
-    background 0.28s var(--transicao);
+    background 0.28s var(--transicao),
+    opacity 0.28s var(--transicao);
+}
+
+.carrossel-projeto__botao {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
 }
 
 .carrossel-projeto__botao:hover {
@@ -566,6 +571,7 @@ img {
 }
 
 .carrossel-projeto__indicador {
+  position: relative;
   width: 8px;
   height: 8px;
   padding: 0;
@@ -576,6 +582,12 @@ img {
   transition:
     transform 0.28s var(--transicao),
     background 0.28s var(--transicao);
+}
+
+.carrossel-projeto__indicador::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
 }
 
 .carrossel-projeto__indicador.ativo {
@@ -750,6 +762,157 @@ img {
 .visualizador-imagem__fechar:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: scale(1.04);
+}
+
+/* Projetos pessoais - carrossel */
+
+.personal-projects {
+  padding-top: 40px;
+}
+
+.personal-projects .section-top {
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+
+.section-subtitle {
+  max-width: 560px;
+  margin: 18px 0 0;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.carrossel-pessoais {
+  position: relative;
+  z-index: 1;
+}
+
+.carrossel-pessoais__trilha {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carrossel-pessoais__trilha::-webkit-scrollbar {
+  display: none;
+}
+
+.carrossel-pessoais__controles {
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.carrossel-pessoais__botao:hover:not(:disabled) {
+  background: var(--branco);
+  transform: scale(1.04);
+}
+
+.carrossel-pessoais__botao:disabled {
+  cursor: default;
+  opacity: 0.32;
+}
+
+.carrossel-pessoais__indicadores {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.personal-projects.sem-controles .carrossel-pessoais__indicadores,
+.personal-projects.sem-controles .carrossel-pessoais__controles {
+  display: none;
+}
+
+.project-card--pessoal {
+  display: flex;
+  flex: 0 0 calc((100% - 2 * 28px) / 2.35);
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+
+.project-card--pessoal .project-meta {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-card--pessoal .project-meta strong {
+  font-size: clamp(19px, 1.6vw, 24px);
+  line-height: 1.12;
+}
+
+.project-card--pessoal .project-meta p {
+  margin: 4px 0 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.tech-badges li {
+  padding: 5px 11px;
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  background: var(--branco);
+  color: var(--texto-secundario);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.project-card__codigo {
+  width: fit-content;
+  margin-top: auto;
+}
+
+.personal-projects a:focus-visible,
+.personal-projects button:focus-visible,
+.carrossel-pessoais__trilha:focus-visible {
+  outline: 2px solid var(--texto);
+  outline-offset: 4px;
+}
+
+@media (max-width: 1080px) {
+  .project-card--pessoal {
+    flex-basis: calc((100% - 28px) / 2);
+  }
+}
+
+@media (max-width: 760px) {
+  .personal-projects .section-top {
+    margin-bottom: 32px;
+  }
+
+  .carrossel-pessoais__trilha {
+    gap: 18px;
+  }
+
+  .project-card--pessoal {
+    flex-basis: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrossel-pessoais__trilha {
+    scroll-behavior: auto;
+  }
 }
 
 @media (max-width: 900px) {

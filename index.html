@@ -133,6 +133,171 @@
         </div>
       </section>
 
+      <section
+        class="projects personal-projects section-reveal"
+        id="projetos-pessoais"
+      >
+        <div class="section-top">
+          <div>
+            <p class="kicker">PROJETOS PESSOAIS</p>
+            <h2>Projetos pessoais.</h2>
+            <p class="section-subtitle">
+              Projetos autorais e de estudo, construídos por conta própria
+              para explorar novas tecnologias e resolver problemas reais.
+            </p>
+          </div>
+
+          <div class="carrossel-pessoais__controles">
+            <button
+              class="carrossel-pessoais__botao"
+              type="button"
+              aria-label="Ver projetos anteriores"
+              aria-controls="carrosselPessoais"
+              data-carrossel-anterior
+            >&lsaquo;</button>
+
+            <button
+              class="carrossel-pessoais__botao"
+              type="button"
+              aria-label="Ver próximos projetos"
+              aria-controls="carrosselPessoais"
+              data-carrossel-proximo
+            >&rsaquo;</button>
+          </div>
+        </div>
+
+        <span class="ghost-word">PESSOAIS</span>
+
+        <div class="carrossel-pessoais">
+          <div
+            class="carrossel-pessoais__trilha"
+            id="carrosselPessoais"
+            role="group"
+            aria-label="Carrossel de projetos pessoais"
+            tabindex="0"
+          >
+            <article class="project-card project-card--pessoal">
+              <figure>
+                <img
+                  src="./assets/chatbot-whatsapp.svg"
+                  alt="Conversa de atendimento automatizado no WhatsApp"
+                  loading="lazy"
+                />
+              </figure>
+
+              <div class="project-meta">
+                <span>Chatbot com IA</span>
+                <strong>Atendimento Inteligente via WhatsApp</strong>
+
+                <p>
+                  Bot de atendimento via WhatsApp com IA (Claude API) para
+                  lojas de roupa. Interpreta pedidos em linguagem natural,
+                  mantém contexto da conversa, navega pelo catálogo, sugere
+                  produtos similares e conduz o cliente até o fechamento do
+                  pedido (endereço e forma de pagamento).
+                </p>
+
+                <ul class="tech-badges" aria-label="Tecnologias utilizadas">
+                  <li>Node.js</li>
+                  <li>Express</li>
+                  <li>Anthropic Claude API</li>
+                  <li>Meta WhatsApp Cloud API</li>
+                  <li>Twilio API</li>
+                  <li>Baileys</li>
+                </ul>
+
+                <a
+                  class="pill-button dark project-card__codigo"
+                  href="https://github.com/Mateus-Fonseca847/whatsapp-chatbot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver código do projeto Atendimento Inteligente via WhatsApp no GitHub"
+                >Ver código <span>&#8599;</span></a>
+              </div>
+            </article>
+
+            <article class="project-card project-card--pessoal">
+              <figure>
+                <img
+                  src="./assets/brasileirao-api.svg"
+                  alt="Tabela de classificação retornada pela Brasileirão API"
+                  loading="lazy"
+                />
+              </figure>
+
+              <div class="project-meta">
+                <span>API REST</span>
+                <strong>Brasileirão API</strong>
+
+                <p>
+                  API REST para consulta de dados históricos validados do
+                  Campeonato Brasileiro Série A (2003–2024), incluindo
+                  temporadas, equipes, partidas, classificações e
+                  estatísticas agregadas.
+                </p>
+
+                <ul class="tech-badges" aria-label="Tecnologias utilizadas">
+                  <li>TypeScript</li>
+                </ul>
+
+                <a
+                  class="pill-button dark project-card__codigo"
+                  href="https://github.com/Mateus-Fonseca847/brasileirao-api"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver código do projeto Brasileirão API no GitHub"
+                >Ver código <span>&#8599;</span></a>
+              </div>
+            </article>
+
+            <article class="project-card project-card--pessoal">
+              <figure>
+                <img
+                  src="./assets/football-predictor.svg"
+                  alt="Gráfico de probabilidades de resultado de uma partida"
+                  loading="lazy"
+                />
+              </figure>
+
+              <div class="project-meta">
+                <span>Dados e previsão</span>
+                <strong>Football Match Predictor</strong>
+
+                <p>
+                  Projeto de estudo que analisa dados históricos de partidas
+                  (Brasileirão 2014–2023) e constrói um pipeline de dados e
+                  features (médias de gols, chutes, posse de bola, forma
+                  recente, cartões) para prever probabilidades de vitória do
+                  mandante, empate ou vitória do visitante, com prevenção de
+                  data leakage e baseline avaliado por acurácia.
+                </p>
+
+                <ul class="tech-badges" aria-label="Tecnologias utilizadas">
+                  <li>JavaScript</li>
+                  <li>Node.js</li>
+                  <li>Node.js Test Runner</li>
+                  <li>APIs REST</li>
+                </ul>
+
+                <a
+                  class="pill-button dark project-card__codigo"
+                  href="https://github.com/Mateus-Fonseca847/football-match-predictor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver código do projeto Football Match Predictor no GitHub"
+                >Ver código <span>&#8599;</span></a>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="carrossel-pessoais__indicadores"
+            id="carrosselPessoaisIndicadores"
+            aria-label="Páginas do carrossel"
+          ></div>
+        </div>
+      </section>
+
       <section class="services section-reveal" id="tecnologias">
         <p class="kicker">TECNOLOGIAS</p>
         <span class="ghost-word">STACK</span>

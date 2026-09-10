@@ -299,3 +299,168 @@ document.addEventListener("keydown", (evento) => {
     fecharModalProjeto();
   }
 });
+
+const secaoProjetosPessoais = document.querySelector("#projetos-pessoais");
+const trilhaProjetosPessoais = document.querySelector("#carrosselPessoais");
+const indicadoresProjetosPessoais = document.querySelector(
+  "#carrosselPessoaisIndicadores"
+);
+const botaoProjetosAnteriores = document.querySelector(
+  "[data-carrossel-anterior]"
+);
+const botaoProximosProjetos = document.querySelector(
+  "[data-carrossel-proximo]"
+);
+
+let totalDePaginasDoCarrossel = 1;
+let paginaAtualDoCarrossel = 0;
+
+function medirCarrosselPessoais() {
+  const primeiroCartao = trilhaProjetosPessoais.firstElementChild;
+
+  if (!primeiroCartao) return { passo: 0, cartoesPorPagina: 1, rolagemMaxima: 0 };
+
+  const espacamento = parseFloat(
+    window.getComputedStyle(trilhaProjetosPessoais).columnGap
+  ) || 0;
+
+  const passo = primeiroCartao.offsetWidth + espacamento;
+
+  const cartoesPorPagina = Math.max(
+    1,
+    Math.round(trilhaProjetosPessoais.clientWidth / passo)
+  );
+
+  const rolagemMaxima = Math.max(
+    0,
+    trilhaProjetosPessoais.scrollWidth - trilhaProjetosPessoais.clientWidth
+  );
+
+  return { passo, cartoesPorPagina, rolagemMaxima };
+}
+
+function irParaPaginaDoCarrossel(novaPagina) {
+  const { passo, cartoesPorPagina, rolagemMaxima } = medirCarrosselPessoais();
+
+  const paginaDesejada = Math.min(
+    Math.max(novaPagina, 0),
+    totalDePaginasDoCarrossel - 1
+  );
+
+  trilhaProjetosPessoais.scrollTo({
+    left: Math.min(paginaDesejada * passo * cartoesPorPagina, rolagemMaxima),
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "auto"
+      : "smooth",
+  });
+}
+
+function atualizarEstadoDoCarrossel() {
+  const { rolagemMaxima } = medirCarrosselPessoais();
+
+  paginaAtualDoCarrossel =
+    rolagemMaxima > 0
+      ? Math.round(
+          (trilhaProjetosPessoais.scrollLeft / rolagemMaxima) *
+            (totalDePaginasDoCarrossel - 1)
+        )
+      : 0;
+
+  indicadoresProjetosPessoais
+    .querySelectorAll("[data-pagina-carrossel]")
+    .forEach((indicador, indiceDoIndicador) => {
+      const estaAtivo = indiceDoIndicador === paginaAtualDoCarrossel;
+
+      indicador.classList.toggle("ativo", estaAtivo);
+      indicador.setAttribute("aria-current", estaAtivo ? "true" : "false");
+    });
+
+  botaoProjetosAnteriores.disabled = paginaAtualDoCarrossel === 0;
+
+  botaoProximosProjetos.disabled =
+    paginaAtualDoCarrossel >= totalDePaginasDoCarrossel - 1;
+}
+
+function montarIndicadoresDoCarrossel() {
+  const { cartoesPorPagina } = medirCarrosselPessoais();
+  const quantidadeDeCartoes = trilhaProjetosPessoais.children.length;
+
+  totalDePaginasDoCarrossel = Math.max(
+    1,
+    Math.ceil(quantidadeDeCartoes / cartoesPorPagina)
+  );
+
+  secaoProjetosPessoais.classList.toggle(
+    "sem-controles",
+    totalDePaginasDoCarrossel === 1
+  );
+
+  indicadoresProjetosPessoais.innerHTML = Array.from(
+    { length: totalDePaginasDoCarrossel },
+    (_, indiceDaPagina) => `
+      <button
+        class="carrossel-projeto__indicador carrossel-pessoais__indicador"
+        type="button"
+        aria-label="Ir para a página ${indiceDaPagina + 1} de ${totalDePaginasDoCarrossel}"
+        aria-controls="carrosselPessoais"
+        data-pagina-carrossel="${indiceDaPagina}"
+      ></button>
+    `
+  ).join("");
+
+  indicadoresProjetosPessoais
+    .querySelectorAll("[data-pagina-carrossel]")
+    .forEach((indicador) => {
+      indicador.addEventListener("click", () => {
+        irParaPaginaDoCarrossel(Number(indicador.dataset.paginaCarrossel));
+      });
+    });
+
+  atualizarEstadoDoCarrossel();
+}
+
+if (
+  trilhaProjetosPessoais &&
+  indicadoresProjetosPessoais &&
+  botaoProjetosAnteriores &&
+  botaoProximosProjetos
+) {
+  let atualizacaoAgendada = false;
+
+  botaoProjetosAnteriores.addEventListener("click", () => {
+    irParaPaginaDoCarrossel(paginaAtualDoCarrossel - 1);
+  });
+
+  botaoProximosProjetos.addEventListener("click", () => {
+    irParaPaginaDoCarrossel(paginaAtualDoCarrossel + 1);
+  });
+
+  trilhaProjetosPessoais.addEventListener("scroll", () => {
+    if (atualizacaoAgendada) return;
+
+    atualizacaoAgendada = true;
+
+    window.requestAnimationFrame(() => {
+      atualizarEstadoDoCarrossel();
+      atualizacaoAgendada = false;
+    });
+  });
+
+  trilhaProjetosPessoais.addEventListener("keydown", (evento) => {
+    if (evento.key !== "ArrowRight" && evento.key !== "ArrowLeft") return;
+
+    evento.preventDefault();
+
+    irParaPaginaDoCarrossel(
+      evento.key === "ArrowRight"
+        ? paginaAtualDoCarrossel + 1
+        : paginaAtualDoCarrossel - 1
+    );
+  });
+
+  new ResizeObserver(montarIndicadoresDoCarrossel).observe(
+    trilhaProjetosPessoais
+  );
+
+  montarIndicadoresDoCarrossel();
+}

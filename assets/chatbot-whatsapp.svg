@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 1000" role="img" aria-label="Capa do projeto Atendimento Inteligente via WhatsApp">
+  <rect width="1180" height="1000" fill="#fafaf8"/>
+  <circle cx="1010" cy="150" r="230" fill="#42d977" opacity="0.10"/>
+  <circle cx="150" cy="880" r="180" fill="#1d1d1d" opacity="0.035"/>
+
+  <g font-family="Inter, Helvetica, Arial, sans-serif">
+    <g transform="translate(140 210)">
+      <rect width="470" height="120" rx="26" fill="#ffffff" stroke="#e4e4e4"/>
+      <text x="36" y="52" font-size="26" fill="#8e8e8e">Cliente</text>
+      <text x="36" y="92" font-size="30" font-weight="600" fill="#1d1d1d">quero uma camisa preta P</text>
+    </g>
+
+    <g transform="translate(400 380)">
+      <rect width="640" height="180" rx="26" fill="#1d1d1d"/>
+      <circle cx="40" cy="46" r="9" fill="#42d977"/>
+      <text x="64" y="55" font-size="26" fill="#8e8e8e">Assistente · IA</text>
+      <text x="40" y="106" font-size="30" font-weight="600" fill="#ffffff">Achei 3 modelos no catálogo.</text>
+      <text x="40" y="148" font-size="30" font-weight="600" fill="#ffffff">Quer ver as fotos?</text>
+    </g>
+
+    <g transform="translate(140 610)">
+      <rect width="400" height="120" rx="26" fill="#ffffff" stroke="#e4e4e4"/>
+      <text x="36" y="52" font-size="26" fill="#8e8e8e">Cliente</text>
+      <text x="36" y="92" font-size="30" font-weight="600" fill="#1d1d1d">pode ser, manda</text>
+    </g>
+
+    <g transform="translate(140 800)">
+      <rect width="286" height="72" rx="36" fill="#ffffff" stroke="#e4e4e4"/>
+      <circle cx="52" cy="36" r="8" fill="#c8c8c8"/>
+      <circle cx="82" cy="36" r="8" fill="#c8c8c8"/>
+      <circle cx="112" cy="36" r="8" fill="#c8c8c8"/>
+      <text x="142" y="46" font-size="24" fill="#8e8e8e">digitando</text>
+    </g>
+  </g>
+</svg>
