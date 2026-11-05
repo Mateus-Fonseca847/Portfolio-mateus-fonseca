@@ -275,6 +275,23 @@ img {
   overflow: hidden;
 }
 
+button.project-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--texto);
+  outline-offset: -2px;
+}
+
 .project-card figure {
   position: relative;
   aspect-ratio: 1.18;
@@ -877,9 +894,15 @@ img {
   font-weight: 500;
 }
 
+.project-card__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+
 .project-card__codigo {
   width: fit-content;
-  margin-top: auto;
 }
 
 .personal-projects a:focus-visible,

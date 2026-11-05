@@ -49,8 +49,8 @@
 
           <p>
             Estudante de Engenharia da Computação no CEFET-RJ,
-            construindo experiência através de estudo,pesquisas
-            e projetos práticos .
+            construindo experiência através de estudo, pesquisas
+            e projetos práticos.
           </p>
 
           <a class="pill-button dark" href="#projetos">
@@ -59,7 +59,10 @@
         </div>
 
         <div class="profile-photo">
-          <img src="./assets/fotoperfil.png" />
+          <img
+            src="./assets/fotoperfil.png"
+            alt="Mateus Fonseca, desenvolvedor Full Stack"
+          />
         </div>
 
         <div class="social-stack" aria-label="Links profissionais">
@@ -91,9 +94,9 @@
         <span class="ghost-word">PROJETOS</span>
 
         <div class="project-grid">
-          <a
+          <button
             class="project-card"
-            href="#"
+            type="button"
             data-projeto="lph"
             aria-controls="modalProjeto"
           >
@@ -107,29 +110,29 @@
             <div class="project-meta">
               <span>Projeto Full Stack</span>
               <strong>LPH Hotéis</strong>
-              <small>Next.js · TypeScript · PostgreSQL · Prisma</small>
+              <small>Next.js · React · TypeScript · Prisma · PostgreSQL · Zod · Vitest · Vercel</small>
             </div>
-          </a>
+          </button>
 
-          <a
+          <button
             class="project-card"
-            href="#"
+            type="button"
             data-projeto="promedica"
             aria-controls="modalProjeto"
           >
             <figure>
               <img
                 src="./assets/promedica.png"
-                alt="Full Stack Learning Lab"
+                alt="Tela do sistema de organização empresarial da Promédica"
               />
             </figure>
 
             <div class="project-meta">
-              <span>Otimizador de processos</span>
+              <span>Projeto Full Stack</span>
               <strong>Sistema de organização empresarial - Promédica</strong>
               <small>JavaScript · HTML · CSS · Git · GitHub</small>
             </div>
-          </a>
+          </button>
         </div>
       </section>
 
@@ -179,6 +182,107 @@
             <article class="project-card project-card--pessoal">
               <figure>
                 <img
+                  src="./assets/aquascan.svg"
+                  alt="Gráfico do nível de um rio com faixas de atenção e crítico"
+                  loading="lazy"
+                />
+              </figure>
+
+              <div class="project-meta">
+                <span>Iniciação científica</span>
+                <strong>AquaScan — monitoramento de rios</strong>
+
+                <p>
+                  Sistema que vai do sensor ao aplicativo. Estações com ESP32
+                  medem nível e vazão do rio, a API classifica o trecho em
+                  estável, atenção ou crítico e registra um alerta quando a
+                  situação piora. Desenvolvi a API, o banco e o aplicativo,
+                  além da rota a pé offline com algoritmo A* sobre um grafo de
+                  ruas do OpenStreetMap. Projeto de equipe, apresentado na
+                  Supernova (Sebrae/MEC).
+                </p>
+
+                <ul class="tech-badges" aria-label="Tecnologias utilizadas">
+                  <li>TypeScript</li>
+                  <li>React Native (Expo)</li>
+                  <li>Fastify</li>
+                  <li>Zod</li>
+                  <li>PostgreSQL</li>
+                  <li>PostGIS</li>
+                  <li>Prisma</li>
+                  <li>Vitest</li>
+                </ul>
+
+                <div class="project-card__acoes">
+                  <a
+                    class="pill-button dark project-card__codigo"
+                    href="https://github.com/Mateus-Fonseca847/aquascan-app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver código do projeto AquaScan no GitHub"
+                  >Ver código <span>&#8599;</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card project-card--pessoal">
+              <figure>
+                <img
+                  src="./assets/daily.svg"
+                  alt="Calendário de estudos ao lado de um heatmap de hábitos"
+                  loading="lazy"
+                />
+              </figure>
+
+              <div class="project-meta">
+                <span>Aplicativo web (PWA)</span>
+                <strong>Daily — organizador de estudos</strong>
+
+                <p>
+                  Aplicativo instalável que funciona offline, na versão 1.0:
+                  calendário em quatro visões, provas com contagem regressiva,
+                  hábitos com heatmap, Modo Foco e estatísticas. A arquitetura
+                  é local-first, então sem conta nenhum dado sai do navegador,
+                  e o login com Google é opcional, protegido por RLS. Testado
+                  com Vitest e Playwright contra o build de produção, com CI e
+                  auditoria de contraste WCAG AA.
+                </p>
+
+                <ul class="tech-badges" aria-label="Tecnologias utilizadas">
+                  <li>React</li>
+                  <li>TypeScript</li>
+                  <li>Vite</li>
+                  <li>Tailwind</li>
+                  <li>Zustand</li>
+                  <li>Zod</li>
+                  <li>Supabase</li>
+                  <li>Playwright</li>
+                  <li>Vitest</li>
+                </ul>
+
+                <div class="project-card__acoes">
+                  <a
+                    class="pill-button dark project-card__codigo"
+                    href="https://github.com/Mateus-Fonseca847/daily-study-planner"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver código do projeto Daily no GitHub"
+                  >Ver código <span>&#8599;</span></a>
+
+                  <a
+                    class="pill-button dark project-card__codigo"
+                    href="https://dailystudyplanner.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver o projeto Daily publicado"
+                  >Ver projeto <span>&#8599;</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card project-card--pessoal">
+              <figure>
+                <img
                   src="./assets/chatbot-whatsapp.svg"
                   alt="Conversa de atendimento automatizado no WhatsApp"
                   loading="lazy"
@@ -206,13 +310,15 @@
                   <li>Baileys</li>
                 </ul>
 
-                <a
-                  class="pill-button dark project-card__codigo"
-                  href="https://github.com/Mateus-Fonseca847/whatsapp-chatbot"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Ver código do projeto Atendimento Inteligente via WhatsApp no GitHub"
-                >Ver código <span>&#8599;</span></a>
+                <div class="project-card__acoes">
+                  <a
+                    class="pill-button dark project-card__codigo"
+                    href="https://github.com/Mateus-Fonseca847/whatsapp-chatbot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver código do projeto Atendimento Inteligente via WhatsApp no GitHub"
+                  >Ver código <span>&#8599;</span></a>
+                </div>
               </div>
             </article>
 
@@ -240,13 +346,15 @@
                   <li>TypeScript</li>
                 </ul>
 
-                <a
-                  class="pill-button dark project-card__codigo"
-                  href="https://github.com/Mateus-Fonseca847/brasileirao-api"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Ver código do projeto Brasileirão API no GitHub"
-                >Ver código <span>&#8599;</span></a>
+                <div class="project-card__acoes">
+                  <a
+                    class="pill-button dark project-card__codigo"
+                    href="https://github.com/Mateus-Fonseca847/brasileirao-api"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver código do projeto Brasileirão API no GitHub"
+                  >Ver código <span>&#8599;</span></a>
+                </div>
               </div>
             </article>
 
@@ -279,13 +387,15 @@
                   <li>APIs REST</li>
                 </ul>
 
-                <a
-                  class="pill-button dark project-card__codigo"
-                  href="https://github.com/Mateus-Fonseca847/football-match-predictor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Ver código do projeto Football Match Predictor no GitHub"
-                >Ver código <span>&#8599;</span></a>
+                <div class="project-card__acoes">
+                  <a
+                    class="pill-button dark project-card__codigo"
+                    href="https://github.com/Mateus-Fonseca847/football-match-predictor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver código do projeto Football Match Predictor no GitHub"
+                  >Ver código <span>&#8599;</span></a>
+                </div>
               </div>
             </article>
           </div>
@@ -307,8 +417,8 @@
             <div>
               <h3>Front-end</h3>
               <p>
-                Tecnologias que utilizo para desenvolver
-                interfaces e aplicações web.
+                Tecnologias que utilizo para construir
+                interfaces web e aplicativos móveis.
               </p>
             </div>
 
@@ -318,7 +428,9 @@
               <span>JavaScript, </span>
               <span>TypeScript, </span>
               <span>React, </span>
-              <span>Next.js.</span>
+              <span>Next.js, </span>
+              <span>React Native (Expo), </span>
+              <span>Tailwind.</span>
             </div>
           </article>
 
@@ -326,15 +438,18 @@
             <div>
               <h3>Back-end</h3>
               <p>
-                Tecnologias utilizadas na construção
-                de APIs, regras de negócio e aplicações server-side.
+                Tecnologias utilizadas na construção de APIs,
+                validação e regras de negócio.
               </p>
             </div>
 
             <div class="technology-list">
               <span>Node.js, </span>
+              <span>Fastify, </span>
               <span>APIs REST, </span>
-              <span>Prisma.</span>
+              <span>Zod, </span>
+              <span>Prisma, </span>
+              <span>OpenAPI/Swagger.</span>
             </div>
           </article>
 
@@ -342,38 +457,60 @@
             <div>
               <h3>Dados</h3>
               <p>
-                Ferramentas utilizadas para armazenamento,
-                modelagem e persistência de dados.
+                Ferramentas utilizadas para modelagem,
+                persistência e análise de dados.
               </p>
             </div>
 
             <div class="technology-list">
               <span>PostgreSQL, </span>
+              <span>PostGIS, </span>
+              <span>SQL, </span>
+              <span>Supabase, </span>
               <span>Neon, </span>
-              <span>SQL.</span>
+              <span>Python (pandas, NumPy).</span>
             </div>
           </article>
 
           <article class="service-item">
             <div>
-              <h3>Ferramentas</h3>
+              <h3>Qualidade</h3>
               <p>
-                Ferramentas presentes no meu fluxo de
-                desenvolvimento e versionamento.
+                O que uso para testar, versionar, automatizar
+                e publicar o que construo.
               </p>
             </div>
 
             <div class="technology-list">
               <span>Git, </span>
-              <span>GitHub, </span>
+              <span>GitHub Actions, </span>
+              <span>Docker, </span>
+              <span>Vitest, </span>
+              <span>Playwright, </span>
               <span>Vercel.</span>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <div>
+              <h3>Embarcados</h3>
+              <p>
+                Hardware e aquisição de dados por sensor,
+                do dispositivo até a API.
+              </p>
+            </div>
+
+            <div class="technology-list">
+              <span>Arduino, </span>
+              <span>ESP32, </span>
+              <span>aquisição de dados por sensor.</span>
             </div>
           </article>
         </div>
       </section>
 
       <section class="contact section-reveal" id="contato">
-        <a class="availability" href="mailto:contato@mateusalves.design">
+        <a class="availability" href="mailto:mateusfonseca847@gmail.com">
           <span></span>
           Disponível para novos projetos
         </a>
@@ -385,7 +522,7 @@
           Vamos criar algo relevante juntos.
         </p>
 
-        <a class="pill-button dark" href="mailto:contato@mateusalves.design">
+        <a class="pill-button dark" href="mailto:mateusfonseca847@gmail.com">
           Entre em contato <span>↗</span>
         </a>
       </section>

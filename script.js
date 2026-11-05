@@ -37,11 +37,11 @@ const dadosDosProjetos = {
   lph: {
     nome: "LPH Hotéis",
     empresa: "LPH Hotéis",
-    periodo: "Abr 2026 - Jun 2026",
+    periodo: "Abr 2026 - Jul 2026",
     tipoDeTrabalho: "Freelance",
-    tecnologias: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
-    resumo: "Desenvolvi uma plataforma web para catálogo público de hotéis e operação administrativa interna.",
-    descricao: "",
+    tecnologias: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "Zod", "Vitest", "Vercel"],
+    resumo: "Plataforma web completa de uma rede hoteleira, hoje em produção: site de reservas e painel administrativo interno.",
+    descricao: "Fiz o catálogo com busca e mapa, a disponibilidade por datas e quartos, o checkout com Mercado Pago e as telas de gestão de hotéis, tarifas, reservas e financeiro. Implementei controle de acesso em dois níveis validado no back-end, com 2FA, registro de auditoria e rotinas que expiram reservas e reconciliam pagamentos. Cobri as regras de reserva com testes em Vitest.",
     imagens: ["./assets/LPHSite1.png", "./assets/LPHSite2.png", "./assets/LPHSite3.png"],
     link: "https://lazerpousadahoteis.com.br",
   },
@@ -52,12 +52,13 @@ const dadosDosProjetos = {
     periodo: "Fev 2026 - Mar 2026",
     tipoDeTrabalho: "Freelance",
     tecnologias: ["JavaScript", "HTML", "CSS", "Git", "GitHub"],
-    resumo: "Desenvolvi uma aplicação web para gestão e controle de relatórios operacionais, substituindo processos manuais em planilhas Excel.",
-    descricao: "",
+    resumo: "Software que gera as planilhas do setor de estoque de um sistema legado, no lugar do preenchimento manual.",
+    descricao: "Levantei o processo junto à equipe e desenhei a solução priorizando a simplicidade de uso para pessoas não técnicas.",
     imagens: ["./assets/projetoPromedica1.png", "./assets/projetoPromedica2.png", "./assets/projetoPromedica3.png"],
     link: "",
   },
 };
+
 
 const modalProjeto = document.querySelector("#modalProjeto");
 const conteudoModal = document.querySelector(".modal-projeto__conteudo");
@@ -72,7 +73,7 @@ let imagensDoProjeto = [];
 let nomeDoProjetoAtual = "";
 let indiceImagemAtual = 0;
 
-function criarCampoModal(rotulo, valor) {
+function criarCampoModal(rotulo, valor, etiqueta = "strong") {
   if (!valor || (Array.isArray(valor) && valor.length === 0)) return "";
 
   const conteudo = Array.isArray(valor) ? valor.join(" · ") : valor;
@@ -80,7 +81,7 @@ function criarCampoModal(rotulo, valor) {
   return `
     <div class="modal-projeto__campo">
       <span>${rotulo}</span>
-      <strong>${conteudo}</strong>
+      <${etiqueta}>${conteudo}</${etiqueta}>
     </div>
   `;
 }
@@ -225,11 +226,11 @@ function preencherModalProjeto(projetoSelecionado) {
   montarCarrosselProjeto(projetoSelecionado);
 
   detalhesModalProjeto.innerHTML = [
+    criarCampoModal("Descrição", projetoSelecionado.descricao, "p"),
     criarCampoModal("Empresa", projetoSelecionado.empresa),
     criarCampoModal("Período", projetoSelecionado.periodo),
     criarCampoModal("Tipo de trabalho", projetoSelecionado.tipoDeTrabalho),
     criarCampoModal("Stack", projetoSelecionado.tecnologias),
-    criarCampoModal("Descrição", projetoSelecionado.descricao),
   ].join("");
 
   if (projetoSelecionado.link) {
@@ -262,8 +263,7 @@ function fecharModalProjeto() {
 }
 
 document.querySelectorAll("[data-projeto]").forEach((cardProjeto) => {
-  cardProjeto.addEventListener("click", (evento) => {
-    evento.preventDefault();
+  cardProjeto.addEventListener("click", () => {
     abrirModalProjeto(cardProjeto.dataset.projeto);
   });
 });
@@ -339,16 +339,20 @@ function medirCarrosselPessoais() {
   return { passo, cartoesPorPagina, rolagemMaxima };
 }
 
-function irParaPaginaDoCarrossel(novaPagina) {
+function rolagemDaPagina(indiceDaPagina) {
   const { passo, cartoesPorPagina, rolagemMaxima } = medirCarrosselPessoais();
 
+  return Math.min(indiceDaPagina * passo * cartoesPorPagina, rolagemMaxima);
+}
+
+function irParaPaginaDoCarrossel(novaPagina) {
   const paginaDesejada = Math.min(
     Math.max(novaPagina, 0),
     totalDePaginasDoCarrossel - 1
   );
 
   trilhaProjetosPessoais.scrollTo({
-    left: Math.min(paginaDesejada * passo * cartoesPorPagina, rolagemMaxima),
+    left: rolagemDaPagina(paginaDesejada),
     behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
       ? "auto"
       : "smooth",
@@ -356,15 +360,23 @@ function irParaPaginaDoCarrossel(novaPagina) {
 }
 
 function atualizarEstadoDoCarrossel() {
-  const { rolagemMaxima } = medirCarrosselPessoais();
+  const rolagemAtual = trilhaProjetosPessoais.scrollLeft;
+  let menorDistancia = Infinity;
 
-  paginaAtualDoCarrossel =
-    rolagemMaxima > 0
-      ? Math.round(
-          (trilhaProjetosPessoais.scrollLeft / rolagemMaxima) *
-            (totalDePaginasDoCarrossel - 1)
-        )
-      : 0;
+  paginaAtualDoCarrossel = 0;
+
+  for (
+    let indiceDaPagina = 0;
+    indiceDaPagina < totalDePaginasDoCarrossel;
+    indiceDaPagina += 1
+  ) {
+    const distancia = Math.abs(rolagemDaPagina(indiceDaPagina) - rolagemAtual);
+
+    if (distancia < menorDistancia) {
+      menorDistancia = distancia;
+      paginaAtualDoCarrossel = indiceDaPagina;
+    }
+  }
 
   indicadoresProjetosPessoais
     .querySelectorAll("[data-pagina-carrossel]")
